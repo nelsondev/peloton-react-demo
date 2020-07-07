@@ -1,0 +1,33 @@
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins/_breakpoints";
+
+.table {
+    table-layout: auto;
+    width: 100%;
+    max-width: 100vw;
+
+    @include media-breakpoint-down(md) {
+        table-layout: fixed !important;
+    }
+
+    @include media-breakpoint-down(sm) {
+        td {
+            font-size: 8pt;
+            word-wrap: break-all;
+        }
+        th {
+            font-size: 8pt;
+        }
+    }
+
+    thead th {
+        width: min-content;
+    }
+}
+
+@include media-breakpoint-down(md) {
+    .hide-small {
+        display: none;
+    }
+}

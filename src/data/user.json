@@ -1,0 +1,149 @@
+{
+    "guid": "4876f380-a4e0-4501-947a-83eb0c36229d",
+    "isExternallyHosted": true,
+    "givenname": "dev",
+    "surname": "ryanc",
+    "password": null,
+    "samaccountname": "c56f8edbad564787b366",
+    "userprincipalname": "devryanc@pelotoncomputercom.onmicrosoft.com",
+    "lastLogon": "2020-02-03T21:45:55.807",
+    "createdate": "2020-02-03T14:11:05.743",
+    "isSaasAdmin": false,
+    "isadmin": false,
+    "isSupportUser": false,
+    "distinguishedname": null,
+    "description": "DESCsx",
+    "emailaddress": "devryanc@pelotoncomputercom.onmicrosoft.com",
+    "voicetelephonenumber": null,
+    "enabled": true,
+    "fullname": "dev ryanc",
+    "locale": null,
+    "syncpassword": null,
+    "isguest": false,
+    "groupdns": [
+        "devryanc prodview users",
+        "devryanc siteview users",
+        "devryanc adminview users",
+        "devryanc wellview users",
+        "devryanc rigview users",
+        "devryanc water users"
+    ],
+    "pelotonProducts": [
+        {
+            "name": "ProdView",
+            "icon": "/assets/Peloton.ProdView.Icon.png",
+            "website": "https://www.peloton.com/products/ProdView",
+            "subproducts": [
+                {
+                    "shortname": "Web Access",
+                    "enabled": true,
+                    "name": "devryanc prodview users"
+                },
+                {
+                    "shortname": "API Access",
+                    "enabled": false,
+                    "name": "devryanc prodview apiaccess"
+                },
+                {
+                    "shortname": "Go",
+                    "enabled": false,
+                    "name": "devryanc prodview mobile"
+                },
+                {
+                    "shortname": "Peloton Go",
+                    "enabled": false,
+                    "name": "devryanc prodview pelotongo"
+                }
+            ]
+        },
+        {
+            "name": "SiteView",
+            "icon": "/assets/Peloton.SiteView.Icon.png",
+            "website": "https://www.peloton.com/products/SiteView",
+            "subproducts": [
+                {
+                    "shortname": "Web Access",
+                    "enabled": true,
+                    "name": "devryanc siteview users"
+                }
+            ]
+        },
+        {
+            "name": "WellView",
+            "icon": "/assets/Peloton.WellView.Icon.png",
+            "website": "https://www.peloton.com/products/WellView",
+            "subproducts": [
+                {
+                    "shortname": "Peloton Go",
+                    "enabled": false,
+                    "name": "devryanc wellview pelotongo"
+                },
+                {
+                    "shortname": "API Access",
+                    "enabled": false,
+                    "name": "devryanc wellview apiaccess"
+                },
+                {
+                    "shortname": "Web Access",
+                    "enabled": true,
+                    "name": "devryanc wellview users"
+                }
+            ]
+        },
+        {
+            "name": "AdminView",
+            "icon": "/assets/Peloton.AdminView.Icon.png",
+            "website": "https://www.peloton.com/products/AdminView",
+            "subproducts": [
+                {
+                    "shortname": "Web Access",
+                    "enabled": true,
+                    "name": "devryanc adminview users"
+                }
+            ]
+        },
+        {
+            "name": "RigView",
+            "icon": "/assets/Peloton.RigView.Icon.png",
+            "website": "https://www.peloton.com/products/RigView",
+            "subproducts": [
+                {
+                    "shortname": "Web Access",
+                    "enabled": true,
+                    "name": "devryanc rigview users"
+                }
+            ]
+        },
+        {
+            "name": "Water",
+            "icon": "/assets/Peloton.Water.Icon.png",
+            "website": "https://www.peloton.com/products/Water",
+            "subproducts": [
+                {
+                    "shortname": "Go",
+                    "enabled": false,
+                    "name": "devryanc water mobile"
+                },
+                {
+                    "shortname": "Web Access",
+                    "enabled": true,
+                    "name": "devryanc water users"
+                }
+            ]
+        }
+    ],
+    "disabledPelotonProducts": [
+        {
+            "name": "LandView",
+            "icon": "/assets/Peloton.LandView.Icon.png",
+            "website": "https://www.peloton.com/products/LandView",
+            "subproducts": []
+        },
+        {
+            "name": "PelotonMap",
+            "icon": "/assets/Peloton.PelotonMap.Icon.png",
+            "website": "https://www.peloton.com/products/PelotonMap",
+            "subproducts": []
+        }
+    ]
+}

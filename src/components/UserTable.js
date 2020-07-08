@@ -106,10 +106,10 @@ class UserTable extends React.PureComponent {
 
         // Sort by ascending or descending based on if the state sorted key is truthy or falsy.
         if (sort) {
-            data = data.sort((a, b) => (a[key] < b[key]) ? 1 : -1)
+            data = data.sort((a, b) => (a[key].toLowerCase() < b[key].toLowerCase()) ? 1 : -1)
         }
         else {
-            data = data.sort((a, b) => (a[key] > b[key]) ? 1 : -1)
+            data = data.sort((a, b) => (a[key].toLowerCase() > b[key].toLowerCase()) ? 1 : -1)
         }
 
         // Flip sort boolean so next click will be ascending if was descending.

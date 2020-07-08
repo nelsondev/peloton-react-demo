@@ -80,12 +80,14 @@ class UserCreate extends React.Component {
         this.state = {
             // use default user if no user is specified.
             user: props.data ?? DefaultUser(),
+            validated: false
         }
     }
 
     // Validate name field by just checking if it's empty and includes a space.
     validateName() {
         const nameElement = document.getElementById("name")
+        const nameValidateElement = document.getElementById("name-validate")
 
         // Clean input
         nameElement.value = nameElement.value.replace(/<[^>]*>/g, "")
@@ -96,10 +98,14 @@ class UserCreate extends React.Component {
         if (result) {
             nameElement.classList.remove("border-danger")
             nameElement.placeholder = "Tim Apple..."
+
+            nameValidateElement.classList.add("d-none")
         }
         else {
             nameElement.classList.add("border-danger")
             nameElement.placeholder = "Please enter a valid name!"
+
+            nameValidateElement.classList.remove("d-none")
         }
 
         return result
@@ -108,6 +114,7 @@ class UserCreate extends React.Component {
     // Validate email field by checking for inclusion of @ and a . tld.
     validateEmail() {
         const emailElement = document.getElementById("email")
+        const emailValidateElement = document.getElementById("email-validate")
 
         // Clean input
         emailElement.value = emailElement.value.replace(/<[^>]*>/g, "")
@@ -119,10 +126,14 @@ class UserCreate extends React.Component {
         if (result) {
             emailElement.classList.remove("border-danger")
             emailElement.placeholder = "tim@apple.com"
+
+            emailValidateElement.classList.add("d-none")
         }
         else {
             emailElement.classList.add("border-danger")
             emailElement.placeholder = "Please enter a valid email!"
+
+            emailValidateElement.classList.remove("d-none")
         }
 
         return result
@@ -130,11 +141,17 @@ class UserCreate extends React.Component {
 
     // Validate both input fields.
     validate() {
-        return this.validateName() && this.validateEmail()
+        const result = this.validateName() && this.validateEmail()
+
+        this.setState({validated: result})
+
+        return result
     }
 
     // handle string data entry via text input fields. Key being which field to adjust, value being what to adjust to.
     handleUserDataEnter(key, value) {
+        this.validate()
+
         let user = this.state.user
 
         user[key] = value
@@ -164,9 +181,11 @@ class UserCreate extends React.Component {
     // Validate inputs one more time before saving, call the passed in save handler via props. User being the user
     // data stored in this component state, index being which place in the array this user resides in parent data.
     handleSaveButton(user, index) {
-        if (!this.validate()) return
-
         this.props.save(user, index)
+    }
+
+    componentDidMount() {
+        this.validate()
     }
 
     render() {
@@ -192,12 +211,14 @@ class UserCreate extends React.Component {
                                         <input type="text" id="name" className="form-control" placeholder="Tim Apple..." value={this.state.user.name}
                                             onChange={(e) => this.handleUserDataEnter("name", e.target.value)}
                                             onBlur={this.validateName.bind(this)} />
+                                        <span id="name-validate" className="text-danger d-none">Please enter a valid full name.</span>
                                     </div>
                                     <div className="form-group">
                                         <label htmlFor="email">Email</label>
                                         <input type="email" name="email" id="email" className="form-control" placeholder="tim@apple.com..." value={this.state.user.email} disabled={this.props.new}
                                             onChange={(e) => this.handleUserDataEnter("email", e.target.value)}
                                             onBlur={this.validateEmail.bind(this)} />
+                                        <span id="email-validate" className="text-danger d-none">Please enter a valid email.</span>
                                     </div>
                                     {/* Extra user info */}
                                     <div className="form-group">
@@ -273,7 +294,8 @@ class UserCreate extends React.Component {
                                 </div>
                                 <div className="col text-right">
                                     <button className="btn btn-light mr-2"
-                                        onClick={() => this.handleSaveButton(this.state.user, this.props.index)}>Save</button>
+                                        onClick={(e) => this.handleSaveButton(this.state.user, this.props.index, e)}
+                                        disabled={!this.state.validated}>Save</button>
                                     <button className="btn btn-light"
                                         onClick={this.props.toggler.bind(this)}>Cancel</button>
                                 </div>
